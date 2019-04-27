@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.FrontEnd.Tests</name></assembly>
+<members>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.ETCClass">
+<summary>
+ ETC Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.FloatingPointClass">
+<summary>
+ Floating Point operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.LoadAndStoreClass">
+<summary>
+ Load And Store operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.JumpAndBranchesClass">
+<summary>
+ Jumps And Branches Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.AccumulatorAccessClass">
+<summary>
+ Accumulator Access operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.MultiplyAndDivideClass">
+<summary>
+ Multiply and Divide operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.CondTestAndCondMoveClass">
+<summary>
+ Condition Testing And Conditional Move Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.LogicalAndBitFieldClass">
+<summary>
+ Logical And Bit-Field Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.ShiftAndRotateClass">
+<summary>
+ Shift And Rotate Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS32.ArithmeticClass">
+<summary>
+ Arithmetic Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS64.LoadAndStoreClass">
+<summary>
+ Load and Store operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS64.MultiplyAndDivideClass">
+<summary>
+ Multiply and Divide operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS64.LogicalAndBitFieldClass">
+<summary>
+ Logical and Bit-Field Operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS64.ShiftAndRotateClass">
+<summary>
+ Shift And Rotate operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.MIPS64.ArithmeticClass">
+<summary>
+ Arithmetic operations
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.MiscellaneousControlClass">
+<summary>
+ A6.3.4 Branches and miscellaneous control
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.MediaClass">
+<summary>
+ A5.4 Media instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.ExcepGenAndExcepHandClass">
+<summary>
+ A4.9 Exception-generating and exception-handling instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.MiscellaneousClass">
+<summary>
+ A4.8 Miscellaneous instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.LoadStoreMultipleClass">
+<summary>
+ A4.7 Load/store multiple instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.LoadStoreClass">
+<summary>
+ A4.6 Load/store instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.StatusRegisterAccessClass.[Thumb] Banked register access Parse Test">
+<summary>
+ A4.5.1 Banked register access instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.StatusRegisterAccessClass">
+<summary>
+ A4.5 Status register access instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Standard data-processing Parse Test">
+<summary>
+ A4.4.1 Standard data-processing instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Shift Parse Test">
+<summary>
+ A4.4.2 Shift instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Saturating addition and subtraction Parse Test">
+<summary>
+ A4.4.5 Saturating addition and subtraction instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Saturating Parse Test">
+<summary>
+ A4.4.4 Saturating instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Parallel addition and subtraction Parse Test">
+<summary>
+ A4.4.7 Parallel addition and subtraction instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Packing and unpacking Parse Test">
+<summary>
+ A4.4.6 Packing and unpacking instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Multiply Parse Test">
+<summary>
+ A4.4.3 Multiply instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass.[Thumb] Miscellaneous data-processing Parse Test">
+<summary>
+ A4.4.9 Miscellaneous data-processing instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.DataProcessingClass">
+<summary>
+ A4.4 Data-processing instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMThumb.BranchClass">
+<summary>
+ A4.3 Branch instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Floating-point immediate Parse Test">
+<summary>
+ C4.6.28 Floating-point immediate
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Floating-point conditional select Parse Test">
+<summary>
+ C4.6.24 Floating-point conditional select
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Floating-point conditional compare Parse Test">
+<summary>
+ C4.6.23 Floating-point conditional compare
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Floating-point compare Parse Test">
+<summary>
+ C4.6.22 Floating-point compare
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] FP data-processing (3 source) Parse Test">
+<summary>
+ C4.6.27 Floating-point data-processing (3 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] FP data-processing (2 source) Parse Test">
+<summary>
+ C4.6.26 Floating-point data-processing (2 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] FP data-processing (1 source) Parse Test">
+<summary>
+ C4.6.25 Floating-point data-processing (1 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Cryptographic two-register SHA Parse Test">
+<summary>
+ C4.6.21 Cryptographic two-register SHA
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Cryptographic three-register SHA Parse Test">
+<summary>
+ C4.6.20 Cryptographic three-register SHA
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Cryptographic AES Parse Test">
+<summary>
+ C4.6.19 Cryptographic AES
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Conversion between FP and integer Parse Test">
+<summary>
+ C4.6.30 Conversion between floating-point and integer
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Conversion between FP and fixed-pt Parse Test">
+<summary>
+ C4.6.29 Conversion between floating-point and fixed-point
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD vector x indexed elem Parse Test">
+<summary>
+ C4.6.18 Advanced SIMD vector x indexed element
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD two-reg miscellaneous Parse Test">
+<summary>
+ C4.6.17 Advanced SIMD two-register miscellaneous
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD three same Parse Test">
+<summary>
+ C4.6.16 Advanced SIMD three same
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD three different Parse Test">
+<summary>
+ C4.6.15 Advanced SIMD three different
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD table lookup Parse Test">
+<summary>
+ C4.6.14 Advanced SIMD table lookup
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD shift by immediate Parse Test">
+<summary>
+ C4.6.13 Advanced SIMD shift by immediate
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar x indexed elem Parse Test">
+<summary>
+ C4.6.12 Advanced SIMD scalar x indexed element
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar two-reg misc Parse Test">
+<summary>
+ C4.6.11 Advanced SIMD scalar two-scalReg miscellaneous
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar three same Parse Test">
+<summary>
+ C4.6.10 Advanced SIMD scalar three same
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar three different Parse Test">
+<summary>
+ C4.6.9 Advanced SIMD scalar three different
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar shift by imm Parse Test">
+<summary>
+ C4.6.8 Advanced SIMD scalar shift by immediate
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar pairwise Parse Test">
+<summary>
+ C4.6.7 Advanced SIMD scalar pairwise
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD scalar copy Parse Test">
+<summary>
+ C4.6.6 Advanced SIMD scalar copy
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD permute Parse Test">
+<summary>
+ C4.6.5 Advanced SIMD permute
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD modified immediate Parse Test">
+<summary>
+ C4.6.4 Advanced SIMD modified immediate
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD extract Parse Test">
+<summary>
+ C4.6.3 Advanced SIMD extract
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD copy Parse Test">
+<summary>
+ C4.6.2 Advanced SIMD copy
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass.[AArch64] Advanced SIMD across lanes Parse Test">
+<summary>
+ C4.6.1 Advanced SIMD across lanes
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARM64.DataProcessingSIMDAndFPClass">
+<summary>
+ C4.6 Data processing - SIMD and floating point
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Logical (shifted register) Parse Test">
+<summary>
+ C4.5.10 Logical (shifted register)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Data-processing (3 source) Parse Test">
+<summary>
+ C4.5.9 Data-processing (3 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Data-processing (2 source) Parse Test">
+<summary>
+ C4.5.8 Data-processing (2 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Data-processing (1 source) Parse Test">
+<summary>
+ C4.5.7 Data-processing (1 source)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Conditional select Parse Test">
+<summary>
+ C4.5.6 Conditional select
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Conditional compare (register) Parse Test">
+<summary>
+ C4.5.5 Conditional compare (register)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Conditional compare (immediate) Parse Test">
+<summary>
+ C4.5.4 Conditional compare (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Add/subtract (with carry) Parse Test">
+<summary>
+ C4.5.3 Add/subtract (with carry)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Add/subtract (shifted register) Parse Test">
+<summary>
+ C4.5.2 Add/subtract (shifted register)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass.[AArch64] Add/subtract (extended register) Parse Test">
+<summary>
+ C4.5.1 Add/subtract (extended register)
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARM64.DataPorcessingRegClass">
+<summary>
+ C4.5 Data processing - register
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register pair (pre-idx) Parse Test">
+<summary>
+ C4.4.16 Load/store register pair (pre-indexed)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register pair (post-idx) Parse Test">
+<summary>
+ C4.4.15 Load/store register pair (post-indexed)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register pair (offset) Parse Test">
+<summary>
+ C4.4.14 Load/store register pair (offset)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (unsigned imm) Parse Test">
+<summary>
+ C4.4.13 Load/store register (unsigned immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (unscaled imm) Parse Test">
+<summary>
+ C4.4.12 Load/store register (unscaled immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (unprivileged) Parse Test">
+<summary>
+ C4.4.11 Load/store register (unprivileged)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (reg offset) Parse Test">
+<summary>
+ C4.4.10 Load/store register (register offset)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (imm pre-idx) Parse Test">
+<summary>
+ C4.4.9 Load/store register (immediate pre-indexed)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store register (imm post-idx) Parse Test">
+<summary>
+ C4.4.8 Load/store register (immediate post-indexed)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store no-allocate pair (offset) Parse Test">
+<summary>
+ C4.4.7 Load/store no-allocate pair (offset)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load/store exclusive Parse Test">
+<summary>
+ C4.4.6 Load/store exclusive
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Load register (literal) Parse Test">
+<summary>
+ C4.4.5 Load register (literal)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Adv SIMD load/store single structure Parse Test">
+<summary>
+ C4.4.3 Advanced SIMD load/store single structure
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Adv SIMD ld/st sgl struct (post-idx) Parse Test">
+<summary>
+ C4.4.4 Advanced SIMD load/store single structure (post-indexed)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Adv SIMD ld/st multiple structures Parse Test">
+<summary>
+ C4.4.1 Advanced SIMD load/store multiple structures
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass.[AArch64] Adv SIMD ld/st mul struct (post-idx) Parse Test">
+<summary>
+ C4.4.2 Advanced SIMD load/store multiple structures (post-indexed)
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARM64.LoadAndStoreClass">
+<summary>
+ C4.4 Loads and stores
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Unconditional branch (register) Parse Test">
+<summary>
+ C4.3.7 Unconditional branch (register)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Unconditional branch (immediate) Parse Test">
+<summary>
+ C4.3.6 Unconditional branch (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Test & branch (immediate) Parse Test">
+<summary>
+ C4.3.5 Test &amp; branch (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] System Parse Test">
+<summary>
+ C4.3.4 System
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Exception generation Parse Test">
+<summary>
+ C4.3.3 Exception generation
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Conditional branch (immediate) Parse Test">
+<summary>
+ C4.3.2 Conditional branch (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass.[AArch64] Compare & branch Parse Test">
+<summary>
+ C4.3.1 Compare &amp; branch (immediate)
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARM64.BranchesAndExcepGenAndSystemClass">
+<summary>
+ C4.3 Branches, exception generating and system instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] PC-rel. addressing Parse Test">
+<summary>
+ C4.2.6 PC-rel. addressing
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] Move wide (immediate) Parse Test">
+<summary>
+ C4.2.5 Move wide (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] Logical (immedate) Parse Test">
+<summary>
+ C4.2.4 Logical (immediate)
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] Extract Parse Test">
+<summary>
+ C4.2.3 Extract
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] Bitfield Parse Test">
+<summary>
+ C4.2.2 Bit Field
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass.[AArch64] Add/subtract (immedate) Parse Test">
+<summary>
+ C4.2.1 Add/subtract (immediate)
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARM64.DataProcessingImmClass">
+<summary>
+ C4.2 Data processing - immediate
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.FPDataProcessingClass">
+<summary>
+ A4.14 Floating-point data-processing instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Misc Advanced SIMD data-processing Parse Test">
+<summary>
+ A4.13.6 Miscellaneous Advanced SIMD data-processing instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Bitwise Advanced SIMD data-processing Parse Test">
+<summary>
+ A4.13.2 Bitwise Advanced SIMD data-processing instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Advanced SIMD shift Parse Test">
+<summary>
+ A4.13.4 Advanced SIMD shift instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Advanced SIMD parallel add and sub Parse Test">
+<summary>
+ A4.13.1 Advanced SIMD parallel addition and subtraction
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Advanced SIMD multiply Parse Test">
+<summary>
+ A4.13.5 Advanced SIMD multiply instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass.[ARMv7] Advanced SIMD comparison Parse Test">
+<summary>
+ A4.13.3 Advanced SIMD comparison instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDDataProcessingClass">
+<summary>
+ A4.13 Advanced SIMD data-processing instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDAndFPRegTransClass">
+<summary>
+ A4.12 Advanced SIMD and Floating-point register transfer instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDAndFPLoadStoreClass.[ARMv7] Element and structure load/store Parse Test">
+<summary>
+ A4.11.1 Element and structure load/store instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.AdvSIMDAndFPLoadStoreClass">
+<summary>
+ A4.11 Advanced SIMD and Floating-point load/store instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.CoprocessorClass">
+<summary>
+ A4.10 Co-processor instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.ExcepGenAndExcepHandlClass">
+<summary>
+ A4.9 Exception-generating and exception-handling instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.MiscellaneousClass">
+<summary>
+ A4.8 Miscellaneous instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.LoadStoreMultipleClass">
+<summary>
+ A4.7 Load/store multiple instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.LoadStoreClass">
+<summary>
+ A4.6 Load/store instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.StatusRegisterAccessClass">
+<summary>
+ A4.5 Status register access instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Standard data-processing Parse Test">
+<summary>
+ A4.4.1 Standard data-processing instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Shift Parse Test">
+<summary>
+ A4.4.2 Shift instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Saturating addition and subtraction Parse Test">
+<summary>
+ A4.4.5 Saturating addition and subtraction instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Saturating Parse Test">
+<summary>
+ A4.4.4 Saturating instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Parallel addition and subtraction Parse Test">
+<summary>
+ A4.4.7 Parallel addition and subtraction instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Packing and unpacking Parse Test">
+<summary>
+ A4.4.6 Packing and unpacking instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Multiply Parse Test">
+<summary>
+ A4.4.3 Multiply instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass.[ARMv7] Miscellaneous data-processing Parse Test">
+<summary>
+ A4.4.9 Miscellaneous data-processing instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.DataProcessingClass">
+<summary>
+ A4.4 Data-processing instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.ARMv7.BranchClass">
+<summary>
+ A4.3 Branch instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.TestClass">
+<summary>
+ IR Test
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.ExceptionTestClass">
+<summary>
+ Exception Test
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.IntelMemoryProtectionClass">
+<summary>
+ 5.22 INTEL MEMORY PROTECTION EXTENSIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.SSSE3Class.Intel Packed AlignRight Parse Test">
+<summary>
+ 5.8.7 Packed Align Right
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.SSSE3Class">
+<summary>
+ 5.8 SUPPLEMENTAL STREAMING SIMD EXTENSIONS 3 (SSSE3) INSTRUCTIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.SSE2Class.Intel SSE 128-Bits SIMD Interger Parse Test">
+<summary>
+ 5.6.3 SSE2 128-Bits SIMD Integer Instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.SSE2Class">
+<summary>
+ 5.6 SSE2 INSTRUCTIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.SSEClass.Intel SSE Conversion Parse Test">
+<summary>
+ 5.5.1 SSE SIMD Single-Precision Floating-Point Instructions
+ 5.5.1.6 SSE Conversion Instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.SSEClass">
+<summary>
+ 5.5 SSE INSTRUCTIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.MMXClass.Intel MMX Conversion Parse Test">
+<summary>
+ 5.4.1 MMX Conversion Instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.MMXClass">
+<summary>
+ 5.4 MMX INSTRUCTIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.X87FPUClass.Intel FPU Data Transfer Parse Test">
+<summary>
+ 5.2.1 x87 FPU Data Transfer Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.X87FPUClass.Intel FPU Comparision Parse Test">
+<summary>
+ 5.2.3 x87 FPU Comparison Instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.X87FPUClass">
+<summary>
+ 5.2 X87 FPU INSTRUCTIONS
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Segment Register Parse Test">
+<summary>
+ 5.1.12 Segment Register Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Shift And Rotate Parse Test">
+<summary>
+ 5.1.5 Shift and Rotate Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Logical Parse Test">
+<summary>
+ 5.1.4 Logical Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Data Transfer Parse Test">
+<summary>
+ 5.1.1 Data Transfer Instruction
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Control Transfer Parse Test">
+<summary>
+ 5.1.7 Control Transfer Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Bit And Byte Parse Test">
+<summary>
+ 5.1.6 Bit and Byte Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Intel Binary Arithmetic Parse Test">
+<summary>
+ 5.1.2 Binary Arithmetic Instructions
+</summary>
+</member>
+<member name="M:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass.Decimal Arithmetic Parse Test">
+<summary>
+ 5.1.3 Decimal Arithmetic Instructions
+</summary>
+</member>
+<member name="T:B2R2.FrontEnd.Tests.Intel.GeneralPurposeClass">
+<summary>
+ 5.1 GENERAL-PURPOSE INSTRUCTIONS
+</summary>
+</member>
+</members>
+</doc>

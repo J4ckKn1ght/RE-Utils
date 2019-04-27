@@ -1,0 +1,303 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": "2ff0fcb55d74609347cdbe96b3bd24343bc497fc"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "B2R2.BinGraph/0.1.1": {
+        "dependencies": {
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "B2R2.FrontEnd": "0.1.1",
+          "B2R2.FrontEnd.ARM32": "0.1.1",
+          "B2R2.FrontEnd.ARM64": "0.1.1",
+          "B2R2.FrontEnd.Core": "0.1.1",
+          "B2R2.FrontEnd.Intel": "0.1.1",
+          "B2R2.FrontEnd.MIPS": "0.1.1",
+          "B2R2.FrontEnd.Optimizer": "0.1.1",
+          "FSharp.Core": "4.5.2",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "B2R2.BinGraph.dll": {}
+        }
+      },
+      "FSharp.Core/4.5.2": {
+        "runtime": {
+          "lib/netstandard1.6/FSharp.Core.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "2018.7.27.2"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.6/cs/FSharp.Core.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard1.6/de/FSharp.Core.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard1.6/en/FSharp.Core.resources.dll": {
+            "locale": "en"
+          },
+          "lib/netstandard1.6/es/FSharp.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard1.6/fr/FSharp.Core.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard1.6/it/FSharp.Core.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard1.6/ja/FSharp.Core.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard1.6/ko/FSharp.Core.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard1.6/pl/FSharp.Core.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard1.6/pt-BR/FSharp.Core.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard1.6/ru/FSharp.Core.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard1.6/tr/FSharp.Core.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard1.6/zh-Hans/FSharp.Core.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard1.6/zh-Hant/FSharp.Core.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "System.Collections.Immutable/1.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "System.Reflection.Metadata/1.6.0": {
+        "dependencies": {
+          "System.Collections.Immutable": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "B2R2.BinFile/0.1.1": {
+        "dependencies": {
+          "B2R2.Core": "0.1.1",
+          "FSharp.Core": "4.5.2",
+          "System.Reflection.Metadata": "1.6.0"
+        },
+        "runtime": {
+          "B2R2.BinFile.dll": {}
+        }
+      },
+      "B2R2.BinIR/0.1.1": {
+        "dependencies": {
+          "B2R2.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.BinIR.dll": {}
+        }
+      },
+      "B2R2.Core/0.1.1": {
+        "dependencies": {
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.Core.dll": {}
+        }
+      },
+      "B2R2.FrontEnd/0.1.1": {
+        "dependencies": {
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.Library.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.ARM32/0.1.1": {
+        "dependencies": {
+          "B2R2.BinFile": "0.1.1",
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "B2R2.FrontEnd.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.ARM32.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.ARM64/0.1.1": {
+        "dependencies": {
+          "B2R2.BinFile": "0.1.1",
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "B2R2.FrontEnd.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.ARM64.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.Core/0.1.1": {
+        "dependencies": {
+          "B2R2.BinFile": "0.1.1",
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.Core.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.Intel/0.1.1": {
+        "dependencies": {
+          "B2R2.BinFile": "0.1.1",
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "B2R2.FrontEnd.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.Intel.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.MIPS/0.1.1": {
+        "dependencies": {
+          "B2R2.BinFile": "0.1.1",
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "B2R2.FrontEnd.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.MIPS.dll": {}
+        }
+      },
+      "B2R2.FrontEnd.Optimizer/0.1.1": {
+        "dependencies": {
+          "B2R2.BinIR": "0.1.1",
+          "B2R2.Core": "0.1.1",
+          "FSharp.Core": "4.5.2"
+        },
+        "runtime": {
+          "B2R2.FrontEnd.Optimizer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "B2R2.BinGraph/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FSharp.Core/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pe3EDp9oBjQ3c3fvZAJsw7XFLHECS3zn3P7MSqsJy3sFYR6jvTgxxnCFeePR1JHiWyZ3bm+RZAjchqVYk61adA==",
+      "path": "fsharp.core/4.5.2",
+      "hashPath": "fsharp.core.4.5.2.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "System.Collections.Immutable/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EXKiDFsChZW0RjrZ4FYHu9aW6+P4MCgEDCklsVseRfhoO0F+dXeMSsMRAlVXIo06kGJ/zv+2w1a2uc2+kxxSaQ==",
+      "path": "system.collections.immutable/1.5.0",
+      "hashPath": "system.collections.immutable.1.5.0.nupkg.sha512"
+    },
+    "System.Reflection.Metadata/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ==",
+      "path": "system.reflection.metadata/1.6.0",
+      "hashPath": "system.reflection.metadata.1.6.0.nupkg.sha512"
+    },
+    "B2R2.BinFile/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.BinIR/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.Core/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.ARM32/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.ARM64/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.Core/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.Intel/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.MIPS/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "B2R2.FrontEnd.Optimizer/0.1.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

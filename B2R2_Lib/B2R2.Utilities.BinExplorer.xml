@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.Utilities.BinExplorer</name></assembly>
+<members>
+<member name="P:B2R2.Utilities.BinExplorer.CmdMap.CmdList">
+<summary>
+ List of command names and aliases.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.CmdMap.CmdMap">
+<summary>
+ Mapping from command name to Cmd.
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.CmdMap">
+<summary>
+ This is a mapping from a command name to the corresponding command (Cmd).
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Cmd.SubCommands">
+<summary>
+ A list of sub-command strings that can be used with this command. This
+ list provides a way to tab-complete a keyword.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Cmd.CmdName">
+<summary>
+ The name of the command.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Cmd.CmdHelp">
+<summary>
+ Command-specific help string.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Cmd.CmdDescr">
+<summary>
+ Short command description.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Cmd.CmdAlias">
+<summary>
+ Aliases for the command.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinExplorer.Cmd.CallBack(B2R2.Utilities.BinExplorer.CmdMap,B2R2.BinGraph.BinEssence,Microsoft.FSharp.Collections.FSharpList{System.String})">
+<summary>
+ A command callback function. This function takes in an Agent (arbiter), a
+ CmdMap, and a list of arguments as input, and produces some side effects.
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.Cmd">
+<summary>
+ Cmd represents a command that can be invoked within B2R2&apos;s CLI.
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.UnknownSize">
+<summary>
+ Unknown Size
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.Zero">
+<summary>
+ Zero size is used to indicate ASCII string.
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.EightBytes">
+<summary>
+ 8 bytes (g).
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.FourBytes">
+<summary>
+ 4 bytes (w).
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.TwoBytes">
+<summary>
+ 2 bytes (h).
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.PrintSize.OneByte">
+<summary>
+ 1 byte (b).
+</summary>
+</member>
+<member name="T:B2R2.Utilities.BinExplorer.DuplicateCommandException">
+<summary>
+ Raised when there are duplicate commands with the same name or alias.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.CmdSpec.spec">
+<summary>
+ Command specification in *alphabetic* order. The entries in this list
+ should match with the KeyWords of help commands (in defaultCmds).
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableReadLine@">
+<summary>
+ Enable readline mode or not. This option will be removed when .NET bug:
+ https://github.com/dotnet/corefx/issues/32174 is fixed.
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.ISA@">
+<summary>
+ Specify ISA. This is only meaningful for universal (fat) binaries because
+ BinHandler will automatically detect file format by default. When a fat
+ binary is given, we need to choose which architecture to explorer with
+ this option.
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.JsonDumpDir@">
+<summary>
+ Dump each CFG in JSON format?
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.LogFile@">
+<summary>
+ Logging output file.
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableVisual@">
+<summary>
+ Enable visualization.
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.Port@">
+<summary>
+ Host port number.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.Port(System.Int32)">
+<summary>
+ Host port number.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.LogFile(System.String)">
+<summary>
+ Logging output file.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.JsonDumpDir(System.String)">
+<summary>
+ Dump each CFG in JSON format?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.ISA(B2R2.ISA)">
+<summary>
+ Specify ISA. This is only meaningful for universal (fat) binaries because
+ BinHandler will automatically detect file format by default. When a fat
+ binary is given, we need to choose which architecture to explorer with
+ this option.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableVisual(System.Boolean)">
+<summary>
+ Enable visualization.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableReadLine(System.Boolean)">
+<summary>
+ Enable readline mode or not. This option will be removed when .NET bug:
+ https://github.com/dotnet/corefx/issues/32174 is fixed.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.Port">
+<summary>
+ Host port number.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.LogFile">
+<summary>
+ Logging output file.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.JsonDumpDir">
+<summary>
+ Dump each CFG in JSON format?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.ISA">
+<summary>
+ Specify ISA. This is only meaningful for universal (fat) binaries because
+ BinHandler will automatically detect file format by default. When a fat
+ binary is given, we need to choose which architecture to explorer with
+ this option.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableVisual">
+<summary>
+ Enable visualization.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.EnableReadLine">
+<summary>
+ Enable readline mode or not. This option will be removed when .NET bug:
+ https://github.com/dotnet/corefx/issues/32174 is fixed.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinExplorer.Main.BinExplorerOpts.OptISA``1">
+<summary>
+ &quot;-a&quot; or &quot;--isa&quot; option for specifying ISA.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinExplorer.Main.dumpJsonFiles(System.String,B2R2.BinGraph.BinEssence)">
+<summary>
+ Dump each CFG into JSON file. This feature is implemented to ease the
+ development and debugging process, and may be removed in the future.
+</summary>
+</member>
+</members>
+</doc>

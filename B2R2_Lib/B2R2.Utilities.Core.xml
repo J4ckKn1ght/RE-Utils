@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.Utilities.Core</name></assembly>
+<members>
+<member name="F:B2R2.Utilities.CmdOpts.Verbose@">
+<summary>
+ Verbosity
+</summary>
+</member>
+<member name="P:B2R2.Utilities.CmdOpts.Verbose(System.Boolean)">
+<summary>
+ Verbosity
+</summary>
+</member>
+<member name="P:B2R2.Utilities.CmdOpts.Verbose">
+<summary>
+ Verbosity
+</summary>
+</member>
+<member name="M:B2R2.Utilities.CmdOpts.ParseAndRun``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Collections.FSharpList{System.String},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},System.String,Microsoft.FSharp.Collections.FSharpList{OptParse.Option{``0}},``0,System.String[])">
+<summary>
+ Parse command line arguments, and run the mainFn
+</summary>
+</member>
+<member name="M:B2R2.Utilities.CmdOpts.OptVerbose``1">
+<summary>
+ &quot;-v&quot; or &quot;--verbose&quot; option turns on the verbose mode.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.CmdOpts.OptHelp``1">
+<summary>
+ &quot;-h&quot; or &quot;--help&quot; option.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.CmdOpts.New``1(System.String,Microsoft.FSharp.Core.FSharpOption{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{System.String[],``0}}},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.Int32},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{System.Boolean},Microsoft.FSharp.Core.FSharpOption{System.ConsoleColor})">
+<summary>
+ Just a wrapper function that instantiate an OptParse.Option object.
+</summary>
+</member>
+<member name="T:B2R2.Utilities.CmdOpts">
+<summary>
+ A common set of command-line options used in analyzing binaries.
+</summary>
+</member>
+</members>
+</doc>

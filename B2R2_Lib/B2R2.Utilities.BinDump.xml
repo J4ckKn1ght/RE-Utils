@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.Utilities.BinDump</name></assembly>
+<members>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.DoOptimization@">
+<summary>
+ Perform basic block optimization or not?
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.DumpMethod@">
+<summary>
+ Disassemble or IR-translate?
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.AutoDetect@">
+<summary>
+ Discover binary file format or not?
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.ShowAddress@">
+<summary>
+ Whether to show addresses or not
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.BaseAddress@">
+<summary>
+ Base address
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.ArchOperationMode@">
+<summary>
+ ArchOperationMode
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.ISA@">
+<summary>
+ ISA
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.InputStr@">
+<summary>
+ Input string from command line.
+</summary>
+</member>
+<member name="F:B2R2.Utilities.BinDump.BinDumpOpts.InputFile@">
+<summary>
+ Input file path.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ShowAddress(System.Boolean)">
+<summary>
+ Whether to show addresses or not
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.InputStr(System.Byte[])">
+<summary>
+ Input string from command line.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.InputFile(System.String)">
+<summary>
+ Input file path.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ISA(B2R2.ISA)">
+<summary>
+ ISA
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.DumpMethod(B2R2.Utilities.BinDump.DumpMethod)">
+<summary>
+ Disassemble or IR-translate?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.DoOptimization(B2R2.Utilities.BinDump.OptOption)">
+<summary>
+ Perform basic block optimization or not?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.BaseAddress(System.UInt64)">
+<summary>
+ Base address
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.AutoDetect(System.Boolean)">
+<summary>
+ Discover binary file format or not?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ArchOperationMode(B2R2.ArchOperationMode)">
+<summary>
+ ArchOperationMode
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ShowAddress">
+<summary>
+ Whether to show addresses or not
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.InputStr">
+<summary>
+ Input string from command line.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.InputFile">
+<summary>
+ Input file path.
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ISA">
+<summary>
+ ISA
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.DumpMethod">
+<summary>
+ Disassemble or IR-translate?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.DoOptimization">
+<summary>
+ Perform basic block optimization or not?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.BaseAddress">
+<summary>
+ Base address
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.AutoDetect">
+<summary>
+ Discover binary file format or not?
+</summary>
+</member>
+<member name="P:B2R2.Utilities.BinDump.BinDumpOpts.ArchOperationMode">
+<summary>
+ ArchOperationMode
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptShowAddr``1">
+<summary>
+ &quot;--show-addr&quot; option decides whether to show addresses in disassembly.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptInputString``1">
+<summary>
+ &quot;-s&quot; option for specifying an input string.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptInputFile``1">
+<summary>
+ &quot;-i&quot; option for specifying an input file.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptISA``1">
+<summary>
+ &quot;-a&quot; or &quot;--isa&quot; option for specifying ISA.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptBaseAddr``1">
+<summary>
+ &quot;-r&quot; or &quot;--base-addr&quot; option for specifying a base address.
+</summary>
+</member>
+<member name="M:B2R2.Utilities.BinDump.BinDumpOpts.OptArchMode``1">
+<summary>
+ &quot;-m&quot; or &quot;--mode&quot; option for specifying ArchOperationMode.
+</summary>
+</member>
+</members>
+</doc>

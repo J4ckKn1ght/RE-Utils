@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.BinAnalysis</name></assembly>
+<members>
+<member name="M:B2R2.BinAnalysis.IStateDomain`1.Top(Microsoft.FSharp.Collections.FSharpList{System.String})">
+<summary>
+ Constants
+ TODO: Modify the element type of list to be registers
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IStateDomain`1.Join(`0,`0)">
+<summary>
+ Lattice operations
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IStateDomain`1.AddDom(System.String,`0)">
+<summary>
+ Add environment
+</summary>
+</member>
+<member name="P:B2R2.BinAnalysis.IValueDomain`1.Top">
+<summary>
+ Constants
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IValueDomain`1.Neg(`0)">
+<summary>
+ Unary operation
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IValueDomain`1.Low(`0)">
+<summary>
+ Casting
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IValueDomain`1.IsLe(`0,`0)">
+<summary>
+ Lattice operations
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IValueDomain`1.Eq(`0,`0)">
+<summary>
+ Relative operation
+</summary>
+</member>
+<member name="M:B2R2.BinAnalysis.IValueDomain`1.Add(`0,`0)">
+<summary>
+ Binary operation
+</summary>
+</member>
+</members>
+</doc>

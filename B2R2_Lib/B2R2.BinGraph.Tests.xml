@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.BinGraph.Tests</name></assembly>
+<members>
+<member name="M:B2R2.BinGraph.Tests.CFGTestClass.IRGraph Vertex Test: _start">
+<summary>
+ XXX: What about a bbl starting from 0x81? ( nop ; pop rbp ; ret )
+</summary>
+</member>
+</members>
+</doc>

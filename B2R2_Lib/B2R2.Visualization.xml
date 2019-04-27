@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>B2R2.Visualization</name></assembly>
+<members>
+<member name="T:B2R2.Visualization.OutputGraph">
+<summary>
+ This is Visualization module&apos;s final output type.
+</summary>
+</member>
+<member name="T:B2R2.Visualization.InputGraph">
+<summary>
+ This is Visualization module&apos;s input type.
+</summary>
+</member>
+</members>
+</doc>
