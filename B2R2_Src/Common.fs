@@ -10,96 +10,100 @@ module Common =
   open B2R2.BinIR.LowUIR
 
 
-  let getHandler (binaryFile:string) =
-    BinHandler.Init (ISA.DefaultISA, ArchOperationMode.NoMode, true, 0UL, binaryFile)
+  type Func(func:Function, handler:BinHandler) =
+    let getBlock (blocks) (block) =
+        blocks @ [block]
 
-  let getBinEssence (handler:BinHandler) =
-    BinEssence.Init false handler
+    let deadCodePattern stmt1 stmt2 =
+        match (stmt1, stmt2) with
+        | (ISMark(address, length), IEMark(addres2)) -> Some address
+        | _ -> None
 
-  let getAllFunction (binEssence:BinEssence) =
-    binEssence.Functions.Values |> List.ofSeq
+    let getDeadCodeBlock (listDeadCode) (block:IRVertex) =
+        let stmts = List.toArray block.VData.Stmts |> LocalOptimizer.Optimize |> Array.toList
+        let len = List.length stmts
+        let rec findDeadCodeLoop = function
+        | [] -> []
+        | [stmt] -> []
+        | stmt1::stmt2::stmts ->
+            let address = (deadCodePattern stmt1 stmt2)
+            if address.IsSome then
+                address.Value::(findDeadCodeLoop (stmt2::stmts))
+            else
+                findDeadCodeLoop stmts
+        let listDeadCode = listDeadCode @ (findDeadCodeLoop stmts)
+        listDeadCode
 
-  let private disasmIns hdl (disasm: StringBuilder) ins =
-    let insStr = BinHandler.DisasmInstr hdl true true ins
-    disasm.Append(insStr)
+    member this.address = func.Entry
+    member this.disasmCFG = func.DisasmCFG
+    member this.name = func.Name
+    member this.irCFG = func.IRCFG
+    member this.ssaCFG = func.SSACFG
+    member this.handler = handler
 
-  let private disasmVertex (disasm:StringBuilder, hdl) (vertex:DisasmVertex) =
-    let instrs = vertex.VData.Instrs
-    let disasm = disasm.Append("loc_" + vertex.VData.AddrRange.Min.ToString ("X") + ":").Append("\n")
-    let rec disasmLoop sb = function
-    | [] -> sb
-    | [ins] -> disasmIns hdl sb ins
-    | ins :: instrs ->
-      disasmLoop ((disasmIns hdl sb ins).Append("\n")) instrs
-    let disasm = disasmLoop disasm instrs
-    disasm.Append("\n\n"), hdl
+    member this.disasmIns (ins:Instruction) =
+        BinHandler.DisasmInstr this.handler true true ins
 
-  let disasmFunc (func:Function) (handler:BinHandler) =
-    let disasm = StringBuilder()
-    let disasm, _ = func.DisasmCFG.FoldVertex disasmVertex (disasm, handler)
-    disasm.ToString()
+    member this.liftStmt (stmt:Stmt) =
+        Pp.stmtToString stmt
 
-  let private liftStmt (ir:StringBuilder) stmt =
-    let irStr = Pp.stmtToString stmt
-    ir.Append(irStr)
+    member this.disasmBlock (block:DisasmVertex) =
+        let instrs = block.VData.Instrs
+        let disasm = "loc_" + block.VData.AddrRange.Min.ToString ("X") + ":\n"
+        let rec disasmLoop = function
+        | [] -> ""
+        | [ins] -> this.disasmIns(ins)
+        | ins :: instrs -> this.disasmIns(ins) + "\n" + disasmLoop instrs
+        let disasm = disasm + disasmLoop instrs
+        disasm
 
-  let private liftVertex (ir:StringBuilder) (vertex:IRVertex) =
-    let stmts = List.toArray vertex.VData.Stmts |> LocalOptimizer.Optimize |> Array.toList
-    let address, _ = vertex.VData.Ppoint
-    let ir = ir.Append("loc_" + address.ToString ("X") + ":\n")
-    let rec irLoop ir = function
-    | [] -> ir
-    | [stmt] -> liftStmt ir stmt
-    | stmt :: stmts ->
-      irLoop ((liftStmt ir stmt).Append("\n")) stmts
-    let ir = irLoop ir stmts
-    ir.Append("\n\n")
+    member this.liftBlock (block:IRVertex) =
+        let stmts = List.toArray block.VData.Stmts |> LocalOptimizer.Optimize |> Array.toList
+        let stmts = List.filter (fun stmt -> match stmt with
+                                             | IEMark(_) -> false
+                                             | ISMark(_) -> false
+                                             | _ -> true) stmts
+        let address, _ = block.VData.Ppoint
+        let ir = "loc_" + address.ToString ("X") + ":\n"
+        let rec liftLoop = function
+        | [] -> ""
+        | [stmt] -> this.liftStmt stmt
+        | stmt :: stmts -> this.liftStmt stmt + "\n" + liftLoop stmts
+        let ir = ir + liftLoop stmts
+        ir
 
-  let liftFunc (func:Function) =
-    let ir = StringBuilder()
-    let ir = func.IRCFG.FoldVertex liftVertex ir
-    ir.ToString()
+    member this.asmBlocks=
+        this.disasmCFG.FoldVertex getBlock ([])
 
-  let getFunctionAt (address:Addr) (binEssence:BinEssence) =
-    binEssence.Functions.Item address
+    member this.irBlocks =
+        this.irCFG.FoldVertex getBlock ([])
 
-  let private deadCodePattern stmt1 stmt2 =
-    match (stmt1, stmt2) with
-    | (ISMark(address, length), IEMark(addres2)) -> Some address
-    | _ -> None
+    member this.getDeadCode =
+        this.irCFG.FoldVertex getDeadCodeBlock []
 
-  let private getDeadCodeBlock (listDeadCode) (block:IRVertex) =
-    let stmts = List.toArray block.VData.Stmts |> LocalOptimizer.Optimize |> Array.toList
-    let len = List.length stmts
-    let rec findDeadCodeLoop = function
-    | [] -> []
-    | [stmt] -> []
-    | stmt1::stmt2::stmts ->
-        let address = (deadCodePattern stmt1 stmt2)
-        if address.IsSome then
-            address.Value::(findDeadCodeLoop (stmt2::stmts))
-        else
-            findDeadCodeLoop stmts
-    let listDeadCode = listDeadCode @ (findDeadCodeLoop stmts)
-    listDeadCode
+    member this.getMaxAddr =
+        let blocks = this.asmBlocks
+        let max = [for block in blocks do yield block.VData.AddrRange.Max] |> List.max
+        max
 
-  let getDeadCodeInFunc (func:Function) =
-    let listDeadCode = []
-    let listDeadCode = func.IRCFG.FoldVertex getDeadCodeBlock listDeadCode
-    listDeadCode
-  
-  let getMaxAddressVertex (maxAddress) (vertex:DisasmVertex) =
-    let maxAddress = if maxAddress < vertex.VData.AddrRange.Max then vertex.VData.AddrRange.Max else maxAddress
-    maxAddress
+    member this.dumpFunc =
+        let maxAddress = this.getMaxAddr
+        let minAddress = this.address
+        let size = maxAddress - minAddress |> int
+        this.handler.ReadBytes(minAddress, size)
 
-  let getMaxAddressFunc (func:Function) =
-    let maxAddress = func.Entry
-    let maxAddress = func.DisasmCFG.FoldVertex getMaxAddressVertex maxAddress
-    maxAddress
+    member this.dumpBlockAt (address:Addr) =
+        let block = List.find (fun (block:DisasmVertex) -> block.VData.AddrRange.Min = address) this.asmBlocks
+        let size = block.VData.AddrRange.Max - block.VData.AddrRange.Min |> uint32
+        let size = size - block.VData.LastInstr.Length |> int
+        this.handler.ReadBytes(block.VData.AddrRange.Min , size)
 
-  let addressToOffset (address:Addr) (handler:BinHandler)=
-    handler.FileInfo.TranslateAddress (address)
 
-  let dumpFunc (func:Function) (handler:BinHandler) =
-    let size = ((getMaxAddressFunc func) - func.Entry) |> int
-    handler.ReadBytes(func.Entry, size)
+  type Binary(fileName:string) =
+    member this.fileName = fileName
+    member this.handler = BinHandler.Init(ISA.DefaultISA, ArchOperationMode.NoMode, true, 0UL, fileName)
+    member this.essence = BinEssence.Init false this.handler
+    member this.functions = this.essence.Functions.Values |> List.ofSeq |> List.map (fun (func:Function) -> Func(func, this.handler))
+
+    member this.getFuncAt (address:Addr) =
+        List.find (fun (func:Func) -> func.address = address) this.functions
