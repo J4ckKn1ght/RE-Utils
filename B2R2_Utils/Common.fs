@@ -87,3 +87,19 @@ module Common =
     let listDeadCode = []
     let listDeadCode = func.IRCFG.FoldVertex getDeadCodeBlock listDeadCode
     listDeadCode
+  
+  let getMaxAddressVertex (maxAddress) (vertex:DisasmVertex) =
+    let maxAddress = if maxAddress < vertex.VData.AddrRange.Max then vertex.VData.AddrRange.Max else maxAddress
+    maxAddress
+
+  let getMaxAddressFunc (func:Function) =
+    let maxAddress = func.Entry
+    let maxAddress = func.DisasmCFG.FoldVertex getMaxAddressVertex maxAddress
+    maxAddress
+
+  let addressToOffset (address:Addr) (handler:BinHandler)=
+    handler.FileInfo.TranslateAddress (address)
+
+  let dumpFunc (func:Function) (handler:BinHandler) =
+    let size = ((getMaxAddressFunc func) - func.Entry) |> int
+    handler.ReadBytes(func.Entry, size)
