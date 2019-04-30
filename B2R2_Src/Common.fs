@@ -3,11 +3,11 @@
 
 module Common =
 
-  open System.Text
   open B2R2.FrontEnd
   open B2R2
   open B2R2.BinGraph
   open B2R2.BinIR.LowUIR
+  open B2R2.FrontEnd.Intel
 
 
   type Func(func:Function, handler:BinHandler) =
@@ -34,15 +34,15 @@ module Common =
         let listDeadCode = listDeadCode @ (findDeadCodeLoop stmts)
         listDeadCode
 
-    member this.address = func.Entry
-    member this.disasmCFG = func.DisasmCFG
-    member this.name = func.Name
-    member this.irCFG = func.IRCFG
-    member this.ssaCFG = func.SSACFG
-    member this.handler = handler
+    member this.Address = func.Entry
+    member this.DisasmCFG = func.DisasmCFG
+    member this.Name = func.Name
+    member this.IRCFG = func.IRCFG
+    member this.SSACFG = func.SSACFG
+    member this.Handler = handler
 
     member this.disasmIns (ins:Instruction) =
-        BinHandler.DisasmInstr this.handler true true ins
+        BinHandler.DisasmInstr this.Handler true true ins
 
     member this.liftStmt (stmt:Stmt) =
         Pp.stmtToString stmt
@@ -73,13 +73,13 @@ module Common =
         ir
 
     member this.asmBlocks=
-        this.disasmCFG.FoldVertex getBlock ([])
+        this.DisasmCFG.FoldVertex getBlock ([])
 
     member this.irBlocks =
-        this.irCFG.FoldVertex getBlock ([])
+        this.IRCFG.FoldVertex getBlock ([])
 
     member this.getDeadCode =
-        this.irCFG.FoldVertex getDeadCodeBlock []
+        this.IRCFG.FoldVertex getDeadCodeBlock []
 
     member this.getMaxAddr =
         let blocks = this.asmBlocks
@@ -88,15 +88,15 @@ module Common =
 
     member this.dumpFunc =
         let maxAddress = this.getMaxAddr
-        let minAddress = this.address
+        let minAddress = this.Address
         let size = maxAddress - minAddress |> int
-        this.handler.ReadBytes(minAddress, size)
+        this.Handler.ReadBytes(minAddress, size)
 
     member this.dumpBlockAt (address:Addr) =
         let block = List.find (fun (block:DisasmVertex) -> block.VData.AddrRange.Min = address) this.asmBlocks
         let size = block.VData.AddrRange.Max - block.VData.AddrRange.Min |> uint32
         let size = size - block.VData.LastInstr.Length |> int
-        this.handler.ReadBytes(block.VData.AddrRange.Min , size)
+        this.Handler.ReadBytes(block.VData.AddrRange.Min , size)
 
 
   type Binary(fileName:string) =
@@ -106,4 +106,7 @@ module Common =
     member this.functions = this.essence.Functions.Values |> List.ofSeq |> List.map (fun (func:Function) -> Func(func, this.handler))
 
     member this.getFuncAt (address:Addr) =
-        List.find (fun (func:Func) -> func.address = address) this.functions
+        List.find (fun (func:Func) -> func.Address = address) this.functions
+
+    member this.addrToOffset (address:Addr) =
+        this.handler.FileInfo.TranslateAddress address
