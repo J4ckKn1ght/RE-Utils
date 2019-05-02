@@ -10,13 +10,19 @@ import Utils
 from string import printable
 from unicorn import *
 
+
+def hook_mem_invalid(uc, type, address, size, value, user_data):
+    if type == UC_MEM_READ_UNMAPPED:
+        print(">>> Missing memory is being READ at 0x%x, data size = %u, data value = 0x%x\n" % (address, size, value))
+    return False
+
+
 class Emulator:
     def __init__(self, fileName):
         self.binary = Common.Binary(fileName)
         self.uc = None
         self.assembler = None
         self.disassmbler = None
-        self.lastLogAddress = None
 
     def readData(self, address, number, size):
         data = self.uc.mem_read(address, number * size)
@@ -35,6 +41,8 @@ class Emulator:
         return string
 
     def writeData(self, address, data, size):
+        if type(data) != list:
+            data = [data]
         for value in data:
             data = Utils.n2d(value, size)
             self.uc.mem_write(address, data)
@@ -56,6 +64,9 @@ class Emulator:
             if end < func.getMaxAddr():
                 end = func.getMaxAddr()
         return end
+
+    def initBeforeRun(self):
+        self.uc.hook_add(UC_HOOK_MEM_READ_UNMAPPED | UC_HOOK_MEM_WRITE_UNMAPPED, hook_mem_invalid)
 
     def getInstrAt(self, address, size=16):
         data = bytes(self.readData(address, size, 1))

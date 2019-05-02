@@ -3,6 +3,8 @@ from unicorn import *
 from unicorn.x86_const import *
 from keystone import *
 from capstone import *
+import logging
+import random
 
 
 class EmulatorX64(Emulator):
@@ -23,7 +25,7 @@ class EmulatorX64(Emulator):
                 address = address & (~0xfff)
             if size % 0x100 != 0:
                 size = (size & ~0xfff) + (0x1000)
-            print("Map at 0x%x with size 0x%x" % (address, size))
+            print("[Info] Map at 0x%x with size 0x%x" % (address, size))
             self.uc.mem_map(address, size)
             self.uc.mem_write(address, data)
 
@@ -35,7 +37,16 @@ class EmulatorX64(Emulator):
         self.uc.reg_write(UC_X86_REG_RBP, stackMiddle)
         self.uc.reg_write(UC_X86_REG_RIP, self.binary.FileInfo.EntryPoint)
 
+        #Init canary
+        try:
+            self.uc.mem_map(0, 0x1000)
+        except:
+            pass
+        canary = random.randrange(0, 2**64 -1)
+        self.writeData(0x28, canary, 8)
+
     def start(self, address=None, end=None):
+        self.initBeforeRun()
         if address != None and end == None:
             end = self.getMaxAddress()
         elif address == None and end == None:
@@ -46,7 +57,7 @@ class EmulatorX64(Emulator):
             self.uc.emu_start(address, end)
         except UcError as ucError:
             if ucError.errno == UC_ERR_FETCH_UNMAPPED:
-                print("Memory UNMAPPED. Last log execute code: \n\t%s" % self.getInstrAt(self.lastLogAddress))
-                print("Emulator Stopped!!")
+                print("[Error] Memory UNMAPPED")
+                print("[Info] Emulator Stopped!!")
             else:
-                print(ucError)
+                print("[Error] " + str(ucError))

@@ -3,6 +3,7 @@ from unicorn import *
 from unicorn.x86_const import *
 from keystone import *
 from capstone import *
+import random
 
 
 class EmulatorX32(Emulator):
@@ -27,6 +28,14 @@ class EmulatorX32(Emulator):
             self.uc.mem_map(address, size)
             self.uc.mem_write(address, data)
 
+        # Init canary
+        try:
+            self.uc.mem_map(0, 0x1000)
+        except:
+            pass
+        canary = random.randrange(0, 2 ** 64 - 1)
+        self.writeData(0x28, canary, 8)
+
         stackStart = 0x30000
         stackSize = 0x21000
         self.uc.mem_map(stackStart - stackSize, stackSize)
@@ -36,6 +45,7 @@ class EmulatorX32(Emulator):
         self.uc.reg_write(UC_X86_REG_EIP, self.binary.FileInfo.EntryPoint)
 
     def start(self, address=None, end=None):
+        self.initBeforeRun()
         if address != None and end == None:
             end = self.getMaxAddress()
         elif address == None and end == None:
@@ -46,7 +56,7 @@ class EmulatorX32(Emulator):
             self.uc.emu_start(address, end)
         except UcError as ucError:
             if ucError.errno == UC_ERR_FETCH_UNMAPPED:
-                print("Memory UNMAPPED. Last log execute code: \n\t%s" % self.getInstrAt(self.lastLogAddress))
+                print("Memory UNMAPPED")
                 print("Emulator Stopped!!")
             else:
                 print(ucError)
